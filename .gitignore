@@ -1,0 +1,25 @@
+# Virtual environment
+venv/
+
+# Python cache and compiled files
+*.pyc
+*.pyo
+__pycache__/
+
+# Sensitive configuration
+.env
+
+# Logs and debug files
+*.log
+
+# Editor and IDE-specific files
+.vscode/
+.idea/
+*.swp
+
+# Alembic migration versions (optional)
+alembic/versions/
+
+# OS-generated files
+.DS_Store
+Thumbs.db
