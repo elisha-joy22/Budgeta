@@ -4,7 +4,7 @@ from sqlalchemy.future import select
 from app.database import get_session
 from app.models.invitees import Invitee, RSVPStatus
 
-router = APIRouter(prefix="/invitees", tags=["Invitees"])
+router = APIRouter(prefix="/api/invitees", tags=["Invitees"])
 
 
 # Create a new invitee
@@ -56,3 +56,5 @@ async def delete_invitee(invitee_id: int, session: AsyncSession = Depends(get_se
     await session.delete(invitee)
     await session.commit()
     return {"message": "Invitee deleted successfully"}
+
+

@@ -30,5 +30,4 @@ class Invitee(SQLModel, table=True):
 
     event_id: int = Field(foreign_key="event.id", nullable=False)  # Foreign key to Event
 
-    # Use string-based reference for the relationship
-    #event: Event = Relationship(back_populates="invitees")
+    event: Event = Relationship(back_populates="invitees")

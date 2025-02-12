@@ -5,6 +5,7 @@ from alembic import context
 from app.models.invitees import Invitee
 from app.models.events import Event, EventGroup
 from app.models.user import User
+from app.models.checklists import Checklist,ChecklistItem
 
 # Alembic Config object, providing access to values in alembic.ini
 config = context.config

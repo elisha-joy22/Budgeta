@@ -4,8 +4,9 @@ from sqlalchemy.future import select
 
 from app.database import get_session
 from app.models.events import Event, EventGroup
+from app.models.invitees import Invitee
 
-router = APIRouter(prefix="/event_groups", tags=["Event Groups"])
+router = APIRouter(prefix="/api/event_groups", tags=["Event Groups"])
 
 # Event Group Endpoints
 
@@ -101,3 +102,10 @@ async def delete_event(event_group_id: int, event_id: int, session: AsyncSession
     await session.delete(event)
     await session.commit()
     return {"message": "Event deleted successfully"}
+
+
+# events.py
+@router.get("/{event_id}/invitees", response_model=list[Invitee])
+async def get_event_invitees(event_id: int, session: AsyncSession = Depends(get_session)):
+    result = await session.execute(select(Invitee).where(Invitee.event_id == event_id))
+    return result.scalars().all()
